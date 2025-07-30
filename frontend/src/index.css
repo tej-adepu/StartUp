@@ -1,0 +1,10 @@
+/* index.css — base and reset styles */
+html, body {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+/* Optional root font override if using custom fonts */
+body {
+  font-family: 'Segoe UI', sans-serif;
+}

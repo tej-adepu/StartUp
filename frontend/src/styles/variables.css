@@ -1,0 +1,30 @@
+:root {
+  /* Colors */
+  --primary: #0d6efd;
+  --primary-dark: #084cd1;
+
+  --secondary: #6c757d;
+  --danger: #dc3545;
+  --warning: #ffc107;
+  --success: #198754;
+
+  --light: #f8f9fa;
+  --gray: #dee2e6;
+  --dark: #212529;
+  --text: #1c1e21;
+  --white: #ffffff;
+
+  /* Font */
+  --font-main: 'Segoe UI', sans-serif;
+
+  /* Sizing */
+  --radius: 6px;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --max-width: 1140px;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+}

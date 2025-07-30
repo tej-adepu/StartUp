@@ -1,0 +1,42 @@
+.viability-meter {
+  margin-top: 1.5rem;
+  font-weight: 600;
+  color: #0d6efd;
+}
+
+.viability-meter label {
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.meter-bar-container {
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  height: 16px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.meter-bar {
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+  transition: width 0.5s ease;
+}
+
+.meter-text {
+  margin-top: 0.3rem;
+  font-weight: 700;
+}
+
+/* Colors based on percentage */
+.meter-bar.high {
+  background-color: #28a745;
+}
+
+.meter-bar.moderate {
+  background-color: #ffc107;
+}
+
+.meter-bar.low {
+  background-color: #dc3545;
+}

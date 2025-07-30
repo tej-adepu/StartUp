@@ -1,0 +1,27 @@
+.idea-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.2rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.idea-card:hover {
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.idea-card h3 {
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.idea-card p {
+  margin: 0.2rem 0;
+  color: #555;
+  font-weight: 500;
+}
+
+.idea-card .btn {
+  margin-top: 1rem;
+}

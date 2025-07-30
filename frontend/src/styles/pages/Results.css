@@ -1,0 +1,13 @@
+.page {
+  padding: 2rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.page h2 {
+  text-align: center;
+  color: #0d6efd;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
