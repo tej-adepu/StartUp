@@ -6,9 +6,9 @@ const Navbar = () => (
   <nav className="navbar">
     <div className="navbar-logo">Validator</div>
     <ul className="navbar-links">
-      <li><Link to="/">Home</Link></li>
-      <li><Link to="/validate">Submit</Link></li>
-      <li><Link to="/dashboard">Dashboard</Link></li>
+      <li><Link to="/">Dashboard</Link></li>
+      <li><Link to="/validate">Validation</Link></li>
+      <li><Link to="/submit">Submit</Link></li>
       <li><Link to="/login">Login</Link></li>
     </ul>
   </nav>

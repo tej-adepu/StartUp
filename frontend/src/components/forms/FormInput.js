@@ -12,9 +12,11 @@ const FormInput = ({
   ...rest
 }) => (
   <div className="form-input-group">
-    <label htmlFor={name} className="form-input-label">
-      {label}
-    </label>
+    {label && (
+      <label htmlFor={name} className="form-input-label">
+        {label}
+      </label>
+    )}
     {type === "textarea" ? (
       <textarea
         id={name}

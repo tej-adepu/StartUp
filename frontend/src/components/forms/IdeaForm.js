@@ -1,15 +1,19 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // ⬅️ Added for navigation
 import FormSection from "./FormSection";
 import FormInput from "./FormInput";
 import validateIdeaFields from "./FormValidation";
-import "../../styles/components/IdeaForm.css"; // Or your central CSS
+import "../../styles/components/IdeaForm.css";
 
 const IdeaForm = ({ onSubmit }) => {
+  const navigate = useNavigate();
+
   const [fields, setFields] = useState({
+    title: "",
     problem: "",
     solution: "",
-    market: "",
     team: "",
+    targetMarket: "",
     businessModel: "",
   });
 
@@ -27,22 +31,48 @@ const IdeaForm = ({ onSubmit }) => {
     setErrors(validateIdeaFields(fields));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validateIdeaFields(fields);
     setErrors(validationErrors);
+
     if (Object.keys(validationErrors).length === 0) {
       setSubmitting(true);
-      onSubmit && onSubmit(fields);
-      setSubmitting(false);
+      try {
+        // Optional: Save to backend
+        if (onSubmit) {
+          await onSubmit(fields);
+        }
+
+        // Redirect to submit page and pass idea data
+        navigate("/submit", { state: { ideaData: fields } });
+
+      } catch (err) {
+        console.error("Error submitting idea:", err);
+      } finally {
+        setSubmitting(false);
+      }
     }
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit} autoComplete="off">
-      <FormSection title="Problem">
+    <form className="form idea-form" onSubmit={handleSubmit} autoComplete="off">
+
+      {/* Startup Title */}
+      <FormSection title="Startup Title">
         <FormInput
-          label="Problem"
+          name="title"
+          value={fields.title}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={touched.title && errors.title}
+          placeholder="Enter a catchy startup idea title"
+        />
+      </FormSection>
+
+      {/* Problem Statement */}
+      <FormSection title="Problem Statement">
+        <FormInput
           name="problem"
           type="textarea"
           value={fields.problem}
@@ -53,9 +83,9 @@ const IdeaForm = ({ onSubmit }) => {
         />
       </FormSection>
 
+      {/* Solution */}
       <FormSection title="Solution">
         <FormInput
-          label="Solution"
           name="solution"
           type="textarea"
           value={fields.solution}
@@ -66,22 +96,9 @@ const IdeaForm = ({ onSubmit }) => {
         />
       </FormSection>
 
-      <FormSection title="Market">
-        <FormInput
-          label="Market"
-          name="market"
-          type="textarea"
-          value={fields.market}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          error={touched.market && errors.market}
-          placeholder="Describe your target market"
-        />
-      </FormSection>
-
+      {/* Team */}
       <FormSection title="Team">
         <FormInput
-          label="Team"
           name="team"
           value={fields.team}
           onChange={handleChange}
@@ -91,21 +108,38 @@ const IdeaForm = ({ onSubmit }) => {
         />
       </FormSection>
 
+      {/* Target Market */}
+      <FormSection title="Target Market">
+        <FormInput
+          name="targetMarket"
+          type="textarea"
+          value={fields.targetMarket}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={touched.targetMarket && errors.targetMarket}
+          placeholder="Describe your target audience and market size"
+        />
+      </FormSection>
+
+      {/* Business Model */}
       <FormSection title="Business Model">
         <FormInput
-          label="Business Model"
           name="businessModel"
+          type="textarea"
           value={fields.businessModel}
           onChange={handleChange}
           onBlur={handleBlur}
           error={touched.businessModel && errors.businessModel}
-          placeholder="How will you make money?"
+          placeholder="How will you generate revenue?"
         />
       </FormSection>
 
-      <button className="btn" type="submit" disabled={submitting}>
-        {submitting ? "Validating..." : "Validate Idea"}
-      </button>
+      {/* Submit */}
+      <div className="form-actions">
+        <button className="btn primary" type="submit" disabled={submitting}>
+          {submitting ? "Validating..." : "Submit Idea"}
+        </button>
+      </div>
     </form>
   );
 };

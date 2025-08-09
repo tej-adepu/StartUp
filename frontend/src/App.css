@@ -1,11 +1,68 @@
+:root {
+  --bg-color: #f4f7fb;         /* Soft/modern light background */
+  --text-color: #222;          /* For most text */
+  --card-bg: #fff;             /* Cards/sections: classic white */
+  --border-color: #e0e5ea;     /* Gentle gray for borders */
+  --accent-color: #4a90e2;
+}
+
+/* App Layout */
 .app {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: var(--bg);
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Inter', 'Segoe UI', 'Arial', sans-serif;
+  line-height: 1.5;
 }
 
+/* Main Content Area */
 .main-content {
   flex: 1;
   padding: 2rem 1rem;
+  background: transparent;
+}
+
+/* Card/Form Section Style */
+.form-section, .idea-card, .recent-ideas {
+  background: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(34,44,90,0.04);
+}
+
+/* Buttons */
+.btn.primary {
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+}
+.btn.primary:hover {
+  background: #357ab8;
+}
+
+.btn.secondary {
+  background: transparent;
+  border: 1.5px solid var(--accent-color);
+  color: var(--accent-color);
+}
+.btn.secondary:hover {
+  background-color: rgba(74,144,226,0.08);
+}
+
+/* Links */
+a {
+  color: var(--accent-color);
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Navbar & Footer Example */
+.navbar, .footer {
+  background: var(--card-bg);
+  color: var(--text-color);
+  border-top: 1px solid var(--border-color);
 }

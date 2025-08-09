@@ -1,36 +1,89 @@
 .form-input-group {
-  margin-bottom: 1.3rem;
+  margin-bottom: 1.5rem;                /* More spacious */
   display: flex;
   flex-direction: column;
+  gap: 0.25rem;
 }
 
 .form-input-label {
   font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-.form-input {
-  padding: 0.6rem 0.75rem;
+  margin-bottom: 0.33rem;
+  color: #212529;                        /* Higher contrast for accessibility */
+  letter-spacing: 0.01em;
   font-size: 1rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-family: inherit;
-  transition: border-color 0.2s ease;
-  resize: vertical;
-  min-height: 40px;
 }
 
-.form-input:focus {
+/* Applies to both input and textarea! */
+.form-input,
+textarea.form-input {
+  padding: 0.7rem 1rem;
+  font-size: 1.05rem;
+  border-radius: 8px;
+  border: 1.5px solid #ced4da;           /* Thicker border for premium feel */
+  background-color: #f9fafe;
+  font-family: inherit;
+  min-height: 44px;
+  resize: vertical;
+  transition: border-color 0.18s, box-shadow 0.18s, background 0.16s;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+
+.form-input:focus,
+textarea.form-input:focus {
   outline: none;
   border-color: #0d6efd;
+  background: #fff;
+  box-shadow: 0 0 0 2px rgba(13,110,253,0.12);
 }
 
-.input-error {
+.form-input:hover,
+textarea.form-input:hover {
+  border-color: #4a90e2;
+  background: #f2f7fd;
+}
+
+.form-input::placeholder,
+textarea.form-input::placeholder {
+  color: #868e96;
+  opacity: 1;
+  font-size: 0.98rem;
+  font-style: italic;
+}
+
+.input-error,
+.input-error:focus,
+textarea.input-error,
+textarea.input-error:focus {
   border-color: #dc3545;
+  box-shadow: 0 0 0 2px rgba(220,53,69,0.12);
 }
 
 .input-error-message {
   color: #dc3545;
-  font-size: 0.85rem;
-  margin-top: 0.3rem;
+  font-size: 0.93rem;
+  margin-top: 0.27rem;
+  font-style: italic;
+}
+
+/* Optional: Add icons inside the input fields if UI includes them */
+/*
+.form-input-group .icon {
+  position: absolute;
+  right: 12px;
+  top: 38px;
+  color: #adb5bd;
+}
+*/
+
+/* Responsive input spacing for mobile */
+@media (max-width: 600px) {
+  .form-input,
+  textarea.form-input {
+    font-size: 0.97rem;
+    padding: 0.6rem 0.7rem;
+    min-height: 38px;
+  }
+  .form-input-label {
+    font-size: 0.97rem;
+  }
 }

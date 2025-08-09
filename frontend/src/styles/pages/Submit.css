@@ -1,0 +1,152 @@
+/* ===== Submit Page Layout ===== */
+.dashboard-page,
+.page {
+  padding: 2rem 1rem;
+  background: #f4f7fb; /* Soft modern light background */
+  min-height: 100vh;
+}
+
+/* Page Heading */
+.dashboard-page h2,
+.page h2 {
+  color: #0d6efd; /* Brand primary */
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* ===== Analytics Section ===== */
+.analytics-container {
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.analytics-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.2rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  border: 1px solid #e0e5ea;
+}
+
+.analytics-card h3 {
+  font-size: 1.4rem;
+  margin: 0.2rem 0;
+  color: #0d6efd;
+}
+
+/* ===== Idea Section ===== */
+.idea-section {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Idea List Layout */
+.idea-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Idea Card Styling */
+.idea-card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #e0e5ea;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.idea-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.idea-card h3 {
+  margin-bottom: 0.5rem;
+  color: #222;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.idea-card p {
+  margin: 0.25rem 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* Metadata (score + viability) */
+.idea-meta {
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: 0.5rem;
+}
+
+/* ===== Action Buttons in Cards ===== */
+.card-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.btn {
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn.primary {
+  background-color: #0d6efd;
+  color: #fff;
+  border: none;
+}
+
+.btn.primary:hover {
+  background-color: #0b5ed7;
+}
+
+.btn.secondary {
+  background: transparent;
+  border: 1px solid #0d6efd;
+  color: #0d6efd;
+}
+
+.btn.secondary:hover {
+  background-color: rgba(13, 110, 253, 0.08);
+}
+
+/* ===== Loading State ===== */
+.loading-container {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.loading-container h2 {
+  font-size: 1.5rem;
+  color: #0d6efd;
+}
+
+.loading-container p {
+  color: #555;
+  font-size: 1rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  .dashboard-page h2,
+  .page h2 {
+    font-size: 1.5rem;
+  }
+  .btn {
+    flex: 1;
+    text-align: center;
+  }
+}
